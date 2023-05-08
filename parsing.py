@@ -17,8 +17,7 @@ def parse():
     soup = BeautifulSoup(padge.text, "html.parser")
 
     cost = soup.find('span', class_='chart__info__sum')
-    cost_str = cost.get_text().lstrip('₽')
+    cost_str = cost.get_text().lstrip('₽').replace(',', '.')[:-1]
     print(cost_str)
 
     return cost_str
-
